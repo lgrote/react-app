@@ -9,8 +9,8 @@ class CardInput extends Component {
           hintText="4x Island"
           floatingLabelText="Please insert your card names"
           multiLine={true}
-          rows={5}
-          rowsMax={7}
+          rows={3}
+          rowsMax={10}
           fullWidth={true}
           underlineShow={true}
           />
