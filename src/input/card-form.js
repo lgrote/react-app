@@ -7,23 +7,24 @@ import DownloadDialog from './download-dialog';
 import Fetcher from '../data/fetcher';
 import './card-form.css';
 
+type Props = {
+    fetcher: Fetcher
+}
+
 export default class CardForm extends React.Component {
     handleChange: (any) => void;
     handleCreate: (any) => void;
 
-    state: {
-        value: string,
-        progress: string,
-        url: ?string,
-        inputEmpty: string,
-    } = {
+    state = {
         value: '',
         progress: 'none',
         url: null,
         inputEmpty: '',
     }
 
-    constructor(props: {fetcher: Fetcher}) {
+    
+
+    constructor(props: Props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleCreate = this.handleCreate.bind(this);

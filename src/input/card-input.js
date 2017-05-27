@@ -2,10 +2,13 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
-const CardInput = (props: {
-    value: string, 
-    onChange: (any) => void, 
-    errorText: string}) => {
+type Props = {
+        value: string, 
+        onChange: (any) => void, 
+        errorText: string
+    }
+
+const CardInput = (props: Props) => {
     return (
       <TextField
           hintText="4x Island"

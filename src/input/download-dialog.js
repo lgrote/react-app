@@ -7,10 +7,16 @@ import CircularProgress from 'material-ui/CircularProgress';
 import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 import './download-dialog.css';
 
+type Props = {
+    reset: ()=> void, 
+    progress: string, 
+    url: ?string
+  }
+
 export default class DownloadDialog extends React.Component {  
   handleClose: () => void;
 
-  constructor(props: {reset: ()=> void, progress: string, url: ?string}) {
+  constructor(props: Props) {
     super(props);
     this.handleClose = this.handleClose.bind(this);
   }

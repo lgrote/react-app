@@ -8,7 +8,7 @@ import Fetcher from './data/fetcher';
 class App extends Component {
   fetcher: Fetcher
 
-  constructor(props: any){
+  constructor(props: {}){
     super(props);
     this.fetcher = new Fetcher('');
   }
