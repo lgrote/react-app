@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TextField from 'material-ui/TextField';
-import './card-input.css';
 
-class CardInput extends Component {
-  render() {
+const CardInput = (props) => {
     return (
       <TextField
           hintText="4x Island"
@@ -13,9 +11,9 @@ class CardInput extends Component {
           rowsMax={10}
           fullWidth={true}
           underlineShow={true}
+          value={props.value}
+          onChange={props.onChange}
           />
     );
-  }
 }
-
 export default CardInput;
