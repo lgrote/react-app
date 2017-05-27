@@ -13,17 +13,27 @@ export default class CardForm extends React.Component {
             value: '',
             progress: 'none',
             url: null,
+            inputEmpty: '',
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
     }
 
      handleChange(event) {
-        this.setState({value: event.target.value});
+        const value = event.target.value.trim();
+        this.setState({value: value});
+        if (value !== ''){
+            this.setState({inputEmpty: ""})
+        }
     }
 
     handleCreate = () => {
-        const value = this.state.value;
+        const value = this.state.value.trim();
+        if (value === ''){
+            this.setState({inputEmpty: "Please insert your card name"})
+            return
+        }
+
         this.setState({progress: 'waiting'}); // maybe we need to check that the previous state was 'none' to avoid 2 request in parallel. 
 
         this.props.fetcher.createProxies(value).then(
@@ -45,11 +55,12 @@ export default class CardForm extends React.Component {
     render() {
         const progress = this.state.progress;
         const url = this.state.url;
-        const value= this.state.value;
+        const value = this.state.value;
+        const inputEmpty = this.state.inputEmpty;
         return(
             <div>
                 <Paper className="card-form" zDepth={2} rounded={false} >
-                    <CardInput value={value} onChange={this.handleChange} />
+                    <CardInput value={value} onChange={this.handleChange} errorText={inputEmpty}/>
                     <div className="align-right">
                         <RaisedButton label="Create" primary={true} onTouchTap={this.handleCreate} />
                     </div>

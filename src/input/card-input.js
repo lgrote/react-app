@@ -13,6 +13,7 @@ const CardInput = (props) => {
           underlineShow={true}
           value={props.value}
           onChange={props.onChange}
+          errorText={props.errorText}
           />
     );
 }
