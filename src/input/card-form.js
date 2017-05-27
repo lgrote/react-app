@@ -1,25 +1,35 @@
+// @flow
 import React from 'react';
 import Paper from 'material-ui/Paper';  
 import RaisedButton from 'material-ui/RaisedButton';
 import CardInput from './card-input';
 import DownloadDialog from './download-dialog';
+import Fetcher from '../data/fetcher';
 import './card-form.css';
 
 export default class CardForm extends React.Component {
-    
-    constructor(props) {
+    handleChange: (any) => void;
+    handleCreate: (any) => void;
+
+    state: {
+        value: string,
+        progress: string,
+        url: ?string,
+        inputEmpty: string,
+    } = {
+        value: '',
+        progress: 'none',
+        url: null,
+        inputEmpty: '',
+    }
+
+    constructor(props: {fetcher: Fetcher}) {
         super(props);
-        this.state = {
-            value: '',
-            progress: 'none',
-            url: null,
-            inputEmpty: '',
-        };
         this.handleChange = this.handleChange.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
     }
 
-     handleChange(event) {
+     handleChange(event: any) {
         const value = event.target.value.trim();
         this.setState({value: value});
         if (value !== ''){

@@ -1,11 +1,14 @@
+// @flow
 import 'whatwg-fetch'
 
 class Fetcher {
-    constructor(baseUrl) {
+    baseUrl: string;
+
+    constructor(baseUrl: string) {
         this.baseUrl = baseUrl;
     }
 
-    createProxies(names) {
+    createProxies(names: string) {
         console.log(names)
         return fetch(this.baseUrl + '/response.json', {
             method: 'GET',

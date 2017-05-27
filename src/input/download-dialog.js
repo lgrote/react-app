@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -7,8 +8,9 @@ import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 import './download-dialog.css';
 
 export default class DownloadDialog extends React.Component {  
+  handleClose: () => void;
 
-  constructor(props) {
+  constructor(props: {reset: ()=> void, progress: string, url: ?string}) {
     super(props);
     this.handleClose = this.handleClose.bind(this);
   }
