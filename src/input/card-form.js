@@ -9,7 +9,6 @@ export default class CardForm extends React.Component {
     
     constructor(props) {
         super(props);
-        super(props);
         this.state = {
             value: '',
             progress: 'none',
@@ -31,7 +30,7 @@ export default class CardForm extends React.Component {
             (resp) => {
                 this.setState({url: resp.url})
             }
-        ).then(()=>{
+        ).then(() => {
             setTimeout(this.handleDone,2000)
         })
     };
