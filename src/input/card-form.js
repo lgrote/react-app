@@ -64,10 +64,8 @@ export default class CardForm extends React.Component {
     }
 
     render() {
-        const progress = this.state.progress;
-        const url = this.state.url;
-        const value = this.state.value;
-        const inputEmpty = this.state.inputEmpty;
+        const { progress, url, value, inputEmpty } = this.state;
+        
         return(
             <div>
                 <Paper className="card-form" zDepth={2} rounded={false} >
