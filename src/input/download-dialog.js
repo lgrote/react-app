@@ -13,21 +13,10 @@ type Props = {
     url: ?string
   }
 
-export default class DownloadDialog extends React.Component {  
-  handleClose: () => void;
-
-  constructor(props: Props) {
-    super(props);
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClose () {
-    this.props.reset();
-  };
-
-  render() {
-    const progress = this.props.progress;
-    const url = this.props.url;
+const DownloadDialog = (props: Props) => {  
+  
+    const progress = props.progress;
+    const url = props.url;
 
     switch (progress){
       case 'none':
@@ -41,7 +30,7 @@ export default class DownloadDialog extends React.Component {
               <FlatButton
                 label="Close"
                 primary={true}
-                onTouchTap={this.handleClose}
+                onTouchTap={props.reset}
               />,
             ];
             return (
@@ -65,5 +54,6 @@ export default class DownloadDialog extends React.Component {
       default:
           throw new Error(progress + " is an illegal value for the progress state");
     }
-  }
 }
+
+export default DownloadDialog;
