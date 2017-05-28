@@ -31,7 +31,7 @@ export default class CardForm extends React.Component {
     }
 
      handleChange(event: any) {
-        const value = event.target.value.trim();
+        const value = event.target.value;
         this.setState({value: value});
         if (value !== ''){
             this.setState({inputEmpty: ""})
