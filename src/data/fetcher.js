@@ -1,22 +1,7 @@
 // @flow
-import 'whatwg-fetch'
+import 'whatwg-fetch';
 
-class Fetcher {
-    baseUrl: string;
-
-    constructor(baseUrl: string) {
-        this.baseUrl = baseUrl;
-    }
-
-    createProxies(names: string) {
-        console.log(names)
-        return fetch(this.baseUrl + '/response.json', {
-            method: 'GET',
-            // method: POST,
-            // body: new FormData(names)
-        }).then(function(response) {
-            return response.json()
-        })
-    }
-}
-export default Fetcher;
+export default (names: string, baseUrl: string = '') =>
+  fetch(`${baseUrl}response.json`, { method: 'GET' })
+    .then(response => response.json())
+    .catch(e => console.error(e)); // always catch promises
