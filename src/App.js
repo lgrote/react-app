@@ -5,20 +5,13 @@ import CardForm from './input/card-form';
 import Fetcher from './data/fetcher';
 
 
-class App extends Component {
-  fetcher: Fetcher
-
-  constructor(props: {}){
-    super(props);
-    this.fetcher = new Fetcher('');
-  }
-  render() {
+const App = (props: {}) => {
+    const fetcher = new Fetcher('');
     return (
           <MuiThemeProvider >
-            <CardForm fetcher={this.fetcher}/>
+            <CardForm fetcher={fetcher}/>
           </MuiThemeProvider>
     );
-  }
 }
 
 export default App;
