@@ -15,10 +15,7 @@ type Props = {
 
 const DownloadDialog = (props: Props) => {  
   
-    const progress = props.progress;
-    const url = props.url;
-
-    switch (progress){
+    switch (props.progress){
       case 'none':
           throw new Error("progress cannot be 'none' at this point");
       case 'waiting': return (
@@ -45,14 +42,14 @@ const DownloadDialog = (props: Props) => {
                     label="Download"
                     labelPosition="before"
                     primary={true}
-                    href={url}
+                    href={props.url}
                     target="_blank"
                     icon={<FileCloudDownload />}
                   />
               </Dialog>
             );
       default:
-          throw new Error(progress + " is an illegal value for the progress state");
+          throw new Error(props.progress + " is an illegal value for the progress state");
     }
 }
 
